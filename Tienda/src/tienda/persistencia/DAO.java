@@ -1,4 +1,4 @@
-package com.tienda.persistencia;
+package tienda.persistencia;
 
 import java.sql.*;
 
