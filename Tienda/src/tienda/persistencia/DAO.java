@@ -2,7 +2,7 @@ package tienda.persistencia;
 
 import java.sql.*;
 
-public class DAO {
+public abstract class DAO {
     
     protected Connection conexion = null;
     protected ResultSet resultado = null;
