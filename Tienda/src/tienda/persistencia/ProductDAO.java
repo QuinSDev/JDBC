@@ -6,7 +6,7 @@ import tienda.entidades.Product;
 
 public final class ProductDAO extends DAO{
     
-    public Collection<Product> printProducts() throws Exception {
+    public Collection<Product> consultProducts() throws Exception {
         
         try {
             

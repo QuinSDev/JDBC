@@ -1,20 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package tienda;
 
-/**
- *
- * @author QuinSDev
- */
+import tienda.services.ProductService;
+
 public class Tienda {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) throws Exception {
+        
+        ProductService pService = new ProductService();
+        pService.printProducts();
+        
     }
     
 }

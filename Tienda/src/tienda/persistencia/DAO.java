@@ -11,14 +11,14 @@ public abstract class DAO {
     private final String USER = "root";
     private final String PASSWORD = "root";
     private final String DATABASE = "tienda";
-    private final String DRIVER = "com.mysql.jdbc.Driver";
+    private final String DRIVER = "com.mysql.cj.jdbc.Driver";
     
     
     protected void conectarBase() throws ClassNotFoundException, SQLException {
         
         try {
             Class.forName(DRIVER);
-            String urlBaseDatos = "jdb:mysql://localhost:3306/" + DATABASE + 
+            String urlBaseDatos = "jdbc:mysql://localhost:3306/" + DATABASE + 
                     "?useSSL=FALSE";
             conexion = DriverManager.getConnection(urlBaseDatos, USER, PASSWORD);
         } catch (ClassNotFoundException | SQLException e) {
