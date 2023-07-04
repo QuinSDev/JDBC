@@ -13,6 +13,7 @@ public class ProductService {
     }
     
     public void printProducts() throws Exception {
+        System.out.println("");
         
         try {
             
@@ -33,7 +34,7 @@ public class ProductService {
     }
     
     public void namePriceProducts() throws Exception {
-        
+        System.out.println("");
         try {
             Collection<Product> products = pDao.consultNamePrice();
             
@@ -53,6 +54,7 @@ public class ProductService {
     }
     
     public void listProducts() throws Exception {
+        System.out.println("");
         try {
             Collection<Product> products = pDao.consultPridceRange();
             
@@ -72,7 +74,7 @@ public class ProductService {
     }
     
     public void productPortatil() {
-        
+        System.out.println("");
         try {
             Collection<Product> products = pDao.consultProductPortatil();
             
@@ -89,7 +91,7 @@ public class ProductService {
     }
     
     public void priceMin() throws Exception {
-        
+        System.out.println("");
         try {
             Collection<Product> products = pDao.consultProductMin();
             
