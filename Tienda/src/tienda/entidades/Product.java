@@ -5,12 +5,12 @@ public class Product {
     private int code;
     private String name;
     private double price;
-    private Maker manufacturerCode;
+    private int manufacturerCode;
 
     public Product() {
     }
 
-    public Product(int code, String name, double price, Maker manufacturerCode) {
+    public Product(int code, String name, double price, int manufacturerCode) {
         this.code = code;
         this.name = name;
         this.price = price;
@@ -41,11 +41,11 @@ public class Product {
         this.price = price;
     }
 
-    public Maker getManufacturerCode() {
+    public int getManufacturerCode() {
         return manufacturerCode;
     }
 
-    public void setManufacturerCode(Maker manufacturerCode) {
+    public void setManufacturerCode(int manufacturerCode) {
         this.manufacturerCode = manufacturerCode;
     }
     

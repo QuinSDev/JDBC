@@ -32,4 +32,43 @@ public class ProductService {
         
     }
     
+    public void namePriceProducts() throws Exception {
+        
+        try {
+            Collection<Product> products = pDao.consultNamePrice();
+            
+            if (products.isEmpty()) {
+                throw new Exception("No hay productos para imprimi");
+            } else {
+                System.out.println("Nombre/Precio");
+                for (Product product : products) {
+                    System.out.println(product.getName() + "        " 
+                            + product.getPrice());
+                }
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+        
+    }
+    
+    public void listProducts() throws Exception {
+        try {
+            Collection<Product> products = pDao.consultPridceRange();
+            
+            if (products.isEmpty()) {
+                throw new Exception("No hay productos para imprimi");
+            } else {
+                System.out.println("Nombre/Precio");
+                for (Product product : products) {
+                    System.out.println(product.getCode() + "\n" + 
+                            product.getName() + "\n" 
+                            + product.getPrice()); 
+                }
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+    
 }
