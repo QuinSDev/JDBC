@@ -23,19 +23,20 @@ public class MenuService {
                         + "120 and 202");
                 System.out.println("4. Search and list products that are portable");
                 System.out.println("5. List name and price cheapest product");
-                System.out.println("6. Exit");
+                System.out.println("6. Enter a product in the database");
+                System.out.println("7. Exit");
                 System.out.println("-------------------------------------------");
                 System.out.print("Choose an option: ");
                 String g = read.nextLine();
                 option = Integer.parseInt(g);
                 optionsMenu(option);
 
-            } catch (NumberFormatException e) {
+            } catch (Exception e) {
                 System.out.println("\nError! Please enter a valid integer.\n");
                 option = 0;
             }
 
-        } while (option != 6);
+        } while (option != 7);
 
     }
 
@@ -63,7 +64,12 @@ public class MenuService {
                 System.out.println("");
                 break;
             case 6:
+                productS.crateProducts();
+                break;
+            case 7:
                 System.out.println("\nYou have exited the system!");
+            default:
+                System.out.println("\nWrong Option!\n");
         }
 
     }

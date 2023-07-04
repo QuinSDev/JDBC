@@ -137,4 +137,27 @@ public final class ProductDAO extends DAO{
        
          
      }
+     
+     public void saveProduct(Product product) throws Exception {
+         
+         try {
+             
+             if (product == null) {
+                 throw new Exception("You must indicate a product");
+             }
+             
+             String sql = "INSERT INTO producto (nombre, precio, "
+                     + "codigo_fabricante) VALUES ('"+ product.getName() + "' , '" 
+                     + product.getPrice() + "' , "
+                     + "'" + product.getManufacturerCode() + "');";
+             
+             insertModifyEliminate(sql);
+             
+         } catch (Exception e) {
+             throw e;
+         } finally {
+             disconnectBase();
+         }
+         
+     }
 }
