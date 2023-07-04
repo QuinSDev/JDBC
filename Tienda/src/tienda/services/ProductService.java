@@ -57,7 +57,7 @@ public class ProductService {
             Collection<Product> products = pDao.consultPridceRange();
             
             if (products.isEmpty()) {
-                throw new Exception("No hay productos para imprimi");
+                throw new Exception("No hay productos para imprimir");
             } else {
                 System.out.println("Nombre/Precio");
                 for (Product product : products) {
@@ -69,6 +69,44 @@ public class ProductService {
         } catch (Exception e) {
             throw e;
         }
+    }
+    
+    public void productPortatil() {
+        
+        try {
+            Collection<Product> products = pDao.consultProductPortatil();
+            
+            if (products.isEmpty()) {
+                System.out.println("Lista vacía");
+            } else {
+                for (Product product : products) {
+                    System.out.println(product);
+                }
+            }
+        } catch (Exception e) {
+        }
+        
+    }
+    
+    public void priceMin() throws Exception {
+        
+        try {
+            Collection<Product> products = pDao.consultProductMin();
+            
+            if (products.isEmpty()) {
+                System.out.println("No hay productos");
+            } else {
+                System.out.println("Nombre/Precio minimo:");
+                for (Product product : products) {
+                    System.out.println(product.getName() + "    " + 
+                            product.getPrice());
+                }
+            }
+            
+        } catch (Exception e) {
+            throw e;
+        }
+        
     }
     
 }

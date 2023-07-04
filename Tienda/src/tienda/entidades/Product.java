@@ -48,5 +48,17 @@ public class Product {
     public void setManufacturerCode(int manufacturerCode) {
         this.manufacturerCode = manufacturerCode;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Code: ").append(code);
+        sb.append(" Name: ").append(name);
+        sb.append(" Price: ").append(price);
+        sb.append(" Manufacturer Code: ").append(manufacturerCode);
+        return sb.toString();
+    }
+    
+    
     
 }
