@@ -7,6 +7,7 @@ public class MenuService {
     int option = 0;
     Scanner read = new Scanner(System.in);
     ProductService productS = new ProductService();
+    MakerService makerS = new MakerService();
 
     public void menuMain() throws Exception {
 
@@ -24,7 +25,8 @@ public class MenuService {
                 System.out.println("4. Search and list products that are portable");
                 System.out.println("5. List name and price cheapest product");
                 System.out.println("6. Enter a product in the database");
-                System.out.println("7. Exit");
+                System.out.println("7. Enter a maker in the darabase");
+                System.out.println("8. Exit");
                 System.out.println("-------------------------------------------");
                 System.out.print("Choose an option: ");
                 String g = read.nextLine();
@@ -36,7 +38,7 @@ public class MenuService {
                 option = 0;
             }
 
-        } while (option != 7);
+        } while (option != 8);
 
     }
 
@@ -67,6 +69,9 @@ public class MenuService {
                 productS.crateProducts();
                 break;
             case 7:
+                makerS.createMaker();
+                break;
+            case 8:
                 System.out.println("\nYou have exited the system!");
             default:
                 System.out.println("\nWrong Option!\n");

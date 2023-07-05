@@ -11,13 +11,13 @@ public final class ProductDAO extends DAO{
         try {
             
             String sql = "SELECT nombre FROM producto";
-            consulteDataBase(sql);
+            consultDataBase(sql);
             Product product = null;
             Collection<Product> products = new ArrayList();
             
             while (resultado.next()) {                
                 product = new Product();
-                product.setName(resultado.getString(1));
+                product.setName(resultado.getString("nombre"));
                 products.add(product);
             }
             disconnectBase();
@@ -34,14 +34,14 @@ public final class ProductDAO extends DAO{
         
         try {
             String sql = "SELECT nombre, precio FROM producto";
-            consulteDataBase(sql);
+            consultDataBase(sql);
             Product product = null;
             Collection<Product> products = new ArrayList();
             
             while (resultado.next()) {                
                 product = new Product();
                 product.setName(resultado.getString(1));
-                product.setPrice(resultado.getInt(2));
+                product.setPrice(resultado.getDouble(2));
                 products.add(product);
             }
             disconnectBase();
@@ -55,12 +55,12 @@ public final class ProductDAO extends DAO{
         
     }
     
-     public Collection<Product> consultPridceRange() throws Exception {
+     public Collection<Product> consultPriceRange() throws Exception {
         
         try {
             String sql = "SELECT * FROM producto "
                     + "WHERE precio BETWEEN 120 AND 202";
-            consulteDataBase(sql);
+            consultDataBase(sql);
             Product product = null;
             Collection<Product> products = new ArrayList();
             
@@ -87,7 +87,7 @@ public final class ProductDAO extends DAO{
          
          try {
              String sql = "SELECT * FROM producto WHERE nombre LIKE '%Portatil%'";
-             consulteDataBase(sql);
+             consultDataBase(sql);
              Product produc = null;
              Collection<Product> products = new ArrayList();
              
@@ -116,7 +116,7 @@ public final class ProductDAO extends DAO{
              String sql = "SELECT p.nombre, p.precio FROM producto p "
                      + "WHERE p.precio = (SELECT MIN(precio) FROM producto)";
              
-             consulteDataBase(sql);
+             consultDataBase(sql);
              Product product = null;
              Collection<Product> products = new ArrayList();
              

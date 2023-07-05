@@ -56,7 +56,7 @@ public abstract class DAO {
         }
     }
     
-    protected void consulteDataBase(String sql) throws Exception {
+    protected void consultDataBase(String sql) throws Exception {
         
         try {
             conectarBase();

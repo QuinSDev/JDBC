@@ -8,7 +8,7 @@ import tienda.persistencia.ProductDAO;
 public class ProductService {
 
     private ProductDAO pDao;
-    private Product product;
+    Product product;
     Scanner read = new Scanner(System.in);
 
     public ProductService() {
@@ -23,7 +23,7 @@ public class ProductService {
             Collection<Product> products = pDao.consultProducts();
 
             if (products.isEmpty()) {
-                throw new Exception("No hay productos para imprimi");
+                throw new Exception("No hay productos para imprimir");
             } else {
                 System.out.println("Nombre");
                 for (Product product : products) {
@@ -42,7 +42,7 @@ public class ProductService {
             Collection<Product> products = pDao.consultNamePrice();
 
             if (products.isEmpty()) {
-                throw new Exception("No hay productos para imprimi");
+                throw new Exception("No hay productos para imprimir");
             } else {
                 System.out.println("Nombre/Precio");
                 for (Product product : products) {
@@ -59,16 +59,14 @@ public class ProductService {
     public void listProducts() throws Exception {
         System.out.println("");
         try {
-            Collection<Product> products = pDao.consultPridceRange();
+            Collection<Product> products = pDao.consultPriceRange();
 
             if (products.isEmpty()) {
                 throw new Exception("No hay productos para imprimir");
             } else {
-                System.out.println("Nombre/Precio");
+                System.out.println("Codigo/Nombre/Precio/Codigo_fabricante");
                 for (Product product : products) {
-                    System.out.println(product.getCode() + "\n"
-                            + product.getName() + "\n"
-                            + product.getPrice());
+                    System.out.println(product);
                 }
             }
         } catch (Exception e) {
@@ -76,19 +74,20 @@ public class ProductService {
         }
     }
 
-    public void productPortatil() {
+    public void productPortatil() throws Exception {
         System.out.println("");
         try {
             Collection<Product> products = pDao.consultProductPortatil();
 
             if (products.isEmpty()) {
-                System.out.println("Lista vacía");
+                throw new Exception("Lista vacía");
             } else {
                 for (Product product : products) {
                     System.out.println(product);
                 }
             }
         } catch (Exception e) {
+            throw e;
         }
 
     }
@@ -98,8 +97,8 @@ public class ProductService {
         try {
             Collection<Product> products = pDao.consultProductMin();
 
-            if (products.isEmpty()) {
-                System.out.println("No hay productos");
+            if(products.isEmpty()) {
+                throw new Exception("No hay productos");
             } else {
                 System.out.println("Nombre/Precio minimo:");
                 for (Product product : products) {
@@ -140,22 +139,17 @@ public class ProductService {
                             + "the name!");
                 }
 
-                if (product.getPrice() == 0) {
+                if (product.getPrice() <= 0) {
                     throw new IllegalArgumentException("\nYou must indicate "
                             + "the price!");
                 }
 
                 pDao.saveProduct(product);
             } catch (IllegalArgumentException e) {
-                if (e instanceof IllegalArgumentException) {
                     System.out.println(e.getMessage());
-                } else {
-                    System.out.println("Invalid!");
-                }
-
             }
         } while (product.getName() == null || product.getName().isEmpty()
-                || product.getPrice() == 0);
+                || product.getPrice() <= 0);
 
     }
 
