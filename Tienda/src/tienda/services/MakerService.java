@@ -10,11 +10,16 @@ public class MakerService {
     Maker maker;
     Scanner read = new Scanner(System.in);
 
+    public MakerService() {
+       mDao = new MakerDAO();
+    }
+
     public void createMaker() throws Exception {
 
         do {
             try {
-                System.out.println("\nEnter the maker name: ");
+                maker = new Maker();
+                System.out.print("\nEnter the maker name: ");
                 maker.setName(read.nextLine());
 
                 if (maker.getName() == null || maker.getName().isEmpty()) {

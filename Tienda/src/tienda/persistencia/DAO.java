@@ -19,7 +19,7 @@ public abstract class DAO {
         try {
             Class.forName(DRIVER);
             String urlBaseDatos = "jdbc:mysql://localhost:3306/" + DATABASE + 
-                    "?useSSL=FALSE";
+                    "?serverTimezone=UTC&useSSL=FALSE";
             conexion = DriverManager.getConnection(urlBaseDatos, USER, PASSWORD);
         } catch (ClassNotFoundException | SQLException e) {
             throw e;

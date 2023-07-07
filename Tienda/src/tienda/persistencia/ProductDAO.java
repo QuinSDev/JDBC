@@ -160,4 +160,51 @@ public final class ProductDAO extends DAO{
          }
          
      }
+     
+     public void modifyProduct(Product product) throws Exception {
+         
+         try {
+             
+             if (product == null) {
+                 throw new Exception("You must indicate the product you want "
+                         + "to modify!");
+             }
+             
+             String sql = "UPDATE Producto SET precio = '" + product.getPrice() +
+                     "' WHERE codigo = '" + product.getCode() + "'";
+             
+             insertModifyEliminate(sql);
+             
+         } catch (Exception e) {
+             throw e;
+         } finally {
+             disconnectBase();
+         }
+         
+     }
+     
+     public Product searchProductForCode(String code) throws Exception {
+         
+         try {
+             
+             String sql = "SELECT * FROM producto WHERE codigo = '" + code + "'";
+             
+             consultDataBase(sql);
+             
+             Product product = null;
+             while (resultado.next()) {                 
+                 product = new Product();
+                 product.setCode(resultado.getInt(1));
+                 product.setName(resultado.getString(2));
+                 product.setPrice(resultado.getDouble(3));
+                 product.setManufacturerCode(resultado.getInt(4));
+             }
+             disconnectBase();
+             return product;
+         } catch (Exception e) {
+             disconnectBase();
+             throw e;
+         }
+         
+     }
 }

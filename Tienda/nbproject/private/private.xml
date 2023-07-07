@@ -6,8 +6,10 @@
             <file>file:/C:/Users/USUARIO/Desktop/JDBC/Tienda/src/tienda/entidades/Maker.java</file>
             <file>file:/C:/Users/USUARIO/Desktop/JDBC/Tienda/src/tienda/entidades/Product.java</file>
             <file>file:/C:/Users/USUARIO/Desktop/JDBC/Tienda/src/tienda/persistencia/DAO.java</file>
+            <file>file:/C:/Users/USUARIO/Desktop/JDBC/Tienda/src/tienda/persistencia/MakerDAO.java</file>
             <file>file:/C:/Users/USUARIO/Desktop/JDBC/Tienda/src/tienda/persistencia/ProductDAO.java</file>
             <file>file:/C:/Users/USUARIO/Desktop/JDBC/Tienda/src/tienda/services/MenuService.java</file>
+            <file>file:/C:/Users/USUARIO/Desktop/JDBC/Tienda/src/tienda/services/MakerService.java</file>
             <file>file:/C:/Users/USUARIO/Desktop/JDBC/Tienda/src/tienda/Tienda.java</file>
             <file>file:/C:/Users/USUARIO/Desktop/JDBC/Tienda/src/tienda/services/ProductService.java</file>
         </group>

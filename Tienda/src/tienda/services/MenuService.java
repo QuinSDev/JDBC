@@ -26,7 +26,8 @@ public class MenuService {
                 System.out.println("5. List name and price cheapest product");
                 System.out.println("6. Enter a product in the database");
                 System.out.println("7. Enter a maker in the darabase");
-                System.out.println("8. Exit");
+                System.out.println("8. Modify price of a product");
+                System.out.println("9. Exit");
                 System.out.println("-------------------------------------------");
                 System.out.print("Choose an option: ");
                 String g = read.nextLine();
@@ -38,7 +39,7 @@ public class MenuService {
                 option = 0;
             }
 
-        } while (option != 8);
+        } while (option != 9);
 
     }
 
@@ -72,6 +73,9 @@ public class MenuService {
                 makerS.createMaker();
                 break;
             case 8:
+                productS.searchProductForCode();
+                break;
+            case 9:
                 System.out.println("\nYou have exited the system!");
             default:
                 System.out.println("\nWrong Option!\n");

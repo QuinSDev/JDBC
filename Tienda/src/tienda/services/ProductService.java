@@ -97,7 +97,7 @@ public class ProductService {
         try {
             Collection<Product> products = pDao.consultProductMin();
 
-            if(products.isEmpty()) {
+            if (products.isEmpty()) {
                 throw new Exception("No hay productos");
             } else {
                 System.out.println("Nombre/Precio minimo:");
@@ -146,10 +146,67 @@ public class ProductService {
 
                 pDao.saveProduct(product);
             } catch (IllegalArgumentException e) {
-                    System.out.println(e.getMessage());
+                System.out.println(e.getMessage());
             }
         } while (product.getName() == null || product.getName().isEmpty()
                 || product.getPrice() <= 0);
+
+    }
+
+    public void modifyProduct(String cp) throws Exception {
+        int code = 0;
+        double newPrice = 0;
+        do {
+            newPrice = 0;
+            try {
+
+                code = Integer.parseInt(cp);
+
+                product.setCode(code);
+                System.out.print("Enter the price: ");
+                String price = read.nextLine();
+                newPrice = Double.parseDouble(price);
+
+                if (newPrice <= 0) {
+                    throw new IllegalArgumentException("\nYou must indicate a valid price!");
+                }
+
+                product.setPrice(newPrice);
+                pDao.modifyProduct(product);
+
+            } catch (NumberFormatException e) {
+                throw new Exception("\nPlease enter a valid integer.");
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+
+        } while (newPrice <= 0);
+    }
+
+    public void searchProductForCode() throws Exception {
+        String cp = "";
+        do {
+            product = null;
+            try {
+                System.out.print("Enter the code of the product you want to modify: ");
+                cp = read.nextLine();
+
+                if (cp.isEmpty()) {
+                    throw new Exception("You must indicate the code!");
+                }
+
+                product = pDao.searchProductForCode(cp);
+                if (product == null) {
+                    throw new Exception("\nThe code entered does not exist!");
+                }
+
+                modifyProduct(cp);
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+
+        } while (cp.isEmpty() || product == null);
 
     }
 
